@@ -10,3 +10,4 @@ Command for clone repository
 Command to run the code after cloning
 
 >mvn install
+>mvn package
