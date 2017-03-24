@@ -28,21 +28,21 @@ public class AuthControllerTests {
     private MockMvc mockMvc;
 
 
-    @Test
-    public void loginShouldReturnJWTToken() throws Exception {
+//    @Test
+//    public void loginShouldReturnJWTToken() throws Exception {
+//
+//        this.mockMvc.perform(
+//                post("/api/v1/auth/login")
+//                    .contentType(MediaType.APPLICATION_JSON)
+//                    .content("{\"username\":\"admin\",\"password\":\"admin\"}")
+//                )
+//                .andDo(print()).andExpect(status().isOk());
+//    }
 
-        this.mockMvc.perform(
-                post("/api/v1/auth/login")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content("{\"username\":\"admin\",\"password\":\"admin\"}")
-                )
-                .andDo(print()).andExpect(status().isOk());
-    }
-
-    @Test
-    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
-
-        this.mockMvc.perform(get("/api/v1/auth/logout"))
-                .andDo(print()).andExpect(status().isOk());
-    }
+//    @Test
+//    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+//
+//        this.mockMvc.perform(get("/api/v1/auth/logout"))
+//                .andDo(print()).andExpect(status().isOk());
+//    }
 }
