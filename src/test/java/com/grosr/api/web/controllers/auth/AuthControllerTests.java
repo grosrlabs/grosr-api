@@ -39,10 +39,10 @@ public class AuthControllerTests {
 //                .andDo(print()).andExpect(status().isOk());
 //    }
 
-//    @Test
-//    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
-//
-//        this.mockMvc.perform(get("/api/v1/auth/logout"))
-//                .andDo(print()).andExpect(status().isOk());
-//    }
+    @Test
+    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+
+        this.mockMvc.perform(get("/api/v1/auth/logout"))
+                .andDo(print()).andExpect(status().isOk());
+    }
 }

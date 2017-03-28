@@ -1,12 +1,13 @@
 package com.grosr.api.dto.auth;
 
+import java.io.Serializable;
+
 /**
  * Created by grosr on 3/7/17.
  */
-public class Login {
+public class Login implements Serializable{
     private String username;
     private String password;
-    private String token;
 
     public String getPassword() {
         return password;
@@ -22,13 +23,5 @@ public class Login {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getToken() {
-        return token;
     }
 }

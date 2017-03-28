@@ -1,9 +1,10 @@
-package com.grosr.api.domain.authentication;
+package com.grosr.api.domain.account;
 
 import com.grosr.api.domain.common.BaseDomain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+
 
 /**
  * Created by grosr on 3/16/17.
@@ -59,5 +60,20 @@ public class Account extends BaseDomain implements Serializable{
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+
+        Account account = (Account) o;
+
+        return getUserId() != null ? getUserId().equals(account.getUserId()) : account.getUserId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getUserId() != null ? getUserId().hashCode() : 0;
     }
 }

@@ -1,13 +1,16 @@
 package com.grosr.api.domain.common;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by grosr on 3/16/17.
  */
-public class BaseDomain {
+@MappedSuperclass
+public class BaseDomain implements Serializable{
 
     @NotNull
     @Column(name = "created_by")

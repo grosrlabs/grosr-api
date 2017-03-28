@@ -5,11 +5,11 @@ package com.grosr.api.dao.common;
  */
 public interface IBaseDAO {
 
-    public Object save();
+    public Object create(Class c);
 
-    public Object delete();
+    public Object delete(Class c);
 
-    public Object update();
+    public Object update(Class c);
 
     public Object read();
 }

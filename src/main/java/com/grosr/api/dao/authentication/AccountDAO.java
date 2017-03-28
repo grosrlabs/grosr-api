@@ -3,22 +3,12 @@ package com.grosr.api.dao.authentication;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-
-import com.grosr.api.domain.authentication.Account;
+import javax.validation.ConstraintViolationException;
+import com.grosr.api.domain.account.Account;
+import org.hibernate.exception.JDBCConnectionException;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-/**
- * This class is used to access data for the Account entity.
- * Repository annotation allows the component scanning support to find and 
- * configure the DAO wihtout any XML configuration and also provide the Spring 
- * exceptiom translation.
- * Since we've setup setPackagesToScan and transaction manager on
- * DatabaseConfig, any bean method annotated with Transactional will cause
- * Spring to magically call begin() and commit() at the start/end of the
- * method. If exception occurs it will also call rollback().
- */
 @Repository
 @Transactional
 public class AccountDAO {
@@ -30,9 +20,17 @@ public class AccountDAO {
     /**
      * Save the Account in the database.
      */
-    public void create(Account account) {
-        entityManager.persist(account);
-        return;
+    public Account create(Account account) {
+        try {
+            entityManager.persist(account);
+        } catch(ConstraintViolationException e) {
+
+        } catch(JDBCConnectionException e) {
+
+        } catch (Exception e) {
+
+        }
+        return account;
     }
 
     /**
@@ -59,7 +57,7 @@ public class AccountDAO {
      */
     public Account getByUsername(String username) {
         return (Account) entityManager.createQuery(
-                "from G_ACCOUNT where username = :username")
+                "from Account where username = :username")
                 .setParameter("username", username)
                 .getSingleResult();
     }
